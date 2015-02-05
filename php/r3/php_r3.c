@@ -39,6 +39,7 @@ zend_class_entry *ce_r3_exception;
 
 // #define DEBUG 1
 static const zend_function_entry r3_functions[] = {
+    PHP_FE(r3_compile, NULL)
     PHP_FE(r3_match, NULL)
     PHP_FE_END
 };
@@ -53,8 +54,8 @@ void r3_mux_le_hash_dtor(zend_rsrc_list_entry *rsrc TSRMLS_DC)
 {
     HashTable *h = (HashTable*) rsrc->ptr;
     if (h) {
-        // zend_hash_destroy(h);
-        // pefree(h, 1);
+        zend_hash_destroy(h);
+        pefree(h, h->persistent);
     }
 }
 

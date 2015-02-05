@@ -1,6 +1,7 @@
 #ifndef PHP_R3_H
 #define PHP_R3_H 1
 
+#include "r3/r3.h"
 #include "php.h"
 #include "string.h"
 #include "main/php_main.h"

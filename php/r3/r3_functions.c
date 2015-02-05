@@ -391,8 +391,25 @@ int mux_loader(char *path, zval *result TSRMLS_DC)
 
 
 /*
- * r3_compile(array $routes, string $path);
+ * r3_compile(array $routes, string $persistent_id);
  */
+PHP_FUNCTION(r3_compile)
+{
+    zval *z_routes;
+    char *id;
+    int id_len;
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "as", &z_routes, &id, &id_len) == FAILURE) {
+        RETURN_FALSE;
+    }
+
+    HashTable *z_routes_hash = Z_ARRVAL_P(z_routes);
+    int num_routes = zend_hash_num_elements(z_routes_hash);
+    node* node = r3_tree_create(num_routes);
+
+    ZEND_REGISTER_RESOURCE(return_value, node, le_mux_hash_table);
+}
+
 PHP_FUNCTION(r3_match)
 {
     zval *z_routes;

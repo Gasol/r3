@@ -80,6 +80,7 @@ int _r3_store_mux(char *name, zval * mux TSRMLS_DC) ;
 
 void my_zval_copy_ctor_persistent_func(zval *zvalue ZEND_FILE_LINE_DC);
 
+PHP_FUNCTION(r3_compile);
 PHP_FUNCTION(r3_match);
 PHP_FUNCTION(r3_sort_routes);
 PHP_FUNCTION(r3_store_mux);
