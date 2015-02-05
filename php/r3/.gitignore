@@ -1,0 +1,12 @@
+/Makefile*
+/acinclude.m4
+/build/
+/config.h.in
+/config.nice
+/configure.in
+/mkinstalldirs
+/modules
+/run-tests.php
+/tests/*
+!/tests/*.phpt
+/tmp-php.ini
